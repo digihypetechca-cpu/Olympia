@@ -70,6 +70,10 @@
   </head>
   <body class="bg-white text-slate-900 antialiased selection:bg-sky-600 selection:text-white">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script
+      type="module"
+      src="/src/main.tsx"
+      onerror="if(!document.getElementById('root')?.hasChildNodes()){window.location.replace('./docs/');}"
+    ></script>
   </body>
 </html>
