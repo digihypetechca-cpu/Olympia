@@ -1,6 +1,5 @@
 import {ArrowRight, Mail, MapPin, Phone, UserCheck} from 'lucide-react';
 import {COMPANY_INFO} from '../config/emailConfig';
-import {SocialLinks} from './SocialLinks';
 
 interface ContactSectionProps {
   onBookClick: () => void;
@@ -13,7 +12,7 @@ export function ContactSection({onBookClick}: ContactSectionProps) {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
           <div>
             <p className="text-sm font-semibold text-[#0284C7] tracking-wide mb-1.5">
-              Direct Contact &amp; Social
+              Direct Contact
             </p>
             <h2
               className="font-display font-bold text-slate-900 tracking-tight leading-tight"
@@ -36,7 +35,7 @@ export function ContactSection({onBookClick}: ContactSectionProps) {
           </button>
         </div>
 
-        {/* Clean 4-Card Contact Grid (Zero duplicate map) */}
+        {/* Clean 4-Card Contact Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
             <div className="w-9 h-9 rounded-lg bg-[#0A1628] text-sky-400 flex items-center justify-center mb-3.5">
@@ -97,15 +96,6 @@ export function ContactSection({onBookClick}: ContactSectionProps) {
               View PEI Service Map →
             </a>
           </div>
-        </div>
-
-        {/* Social Media Bar */}
-        <div className="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <p className="text-sm font-medium text-slate-700">
-            Follow <strong className="font-semibold text-slate-900">{COMPANY_INFO.name}</strong>{' '}
-            on social media:
-          </p>
-          <SocialLinks variant="light" showHandles />
         </div>
       </div>
     </section>

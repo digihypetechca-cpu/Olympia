@@ -108,12 +108,12 @@ export function Navbar({onBookClick}: NavbarProps) {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation-drawer"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+            className="lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-white hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" aria-hidden="true" />
+              <X className="w-6 h-6 text-white" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6" aria-hidden="true" />
+              <Menu className="w-6 h-6 text-white" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -123,7 +123,7 @@ export function Navbar({onBookClick}: NavbarProps) {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-drawer"
-          className="lg:hidden bg-[#0B192E] border-t border-white/10 px-4 pt-3 pb-6 space-y-2"
+          className="lg:hidden bg-[#0B192E] text-white border-t border-white/15 px-4 pt-3 pb-6 space-y-2"
         >
           <nav aria-label="Mobile Navigation" className="flex flex-col space-y-1">
             {NAV_LINKS.map((link) => (
@@ -134,14 +134,14 @@ export function Navbar({onBookClick}: NavbarProps) {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="px-3 py-3 text-base font-medium text-slate-100 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                className="px-3 py-3 text-base font-medium text-white hover:text-sky-300 hover:bg-white/10 rounded-lg transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="pt-3 border-t border-white/10 flex flex-col gap-3">
+          <div className="pt-3 border-t border-white/15 flex flex-col gap-3">
             <button
               type="button"
               onClick={() => {
@@ -155,10 +155,10 @@ export function Navbar({onBookClick}: NavbarProps) {
 
             <a
               href={COMPANY_INFO.phoneHref}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-slate-100 border border-white/20 hover:bg-white/5 rounded-lg transition-colors tabular-nums"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white border border-white/25 hover:bg-white/10 rounded-lg transition-colors tabular-nums"
             >
-              <Phone className="w-4 h-4 text-sky-400" aria-hidden="true" />
-              <span>Call {COMPANY_INFO.phone}</span>
+              <Phone className="w-4 h-4 text-sky-300" aria-hidden="true" />
+              <span className="text-white">Call {COMPANY_INFO.phone}</span>
             </a>
           </div>
         </div>

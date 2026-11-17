@@ -19,7 +19,6 @@ import {
   type AppointmentRequestData,
   type PreferredTimeOption,
 } from '../services/emailService';
-import {SocialLinks} from './SocialLinks';
 
 interface BookingSectionProps {
   selectedService?: ServiceTypeOption;
@@ -221,11 +220,12 @@ export function BookingSection({selectedService}: BookingSectionProps) {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-xs font-semibold text-slate-400 mb-3">
-                Connect with @olympiaelectricltd
-              </p>
-              <SocialLinks variant="dark" />
+            <div className="mt-8 pt-6 border-t border-white/15 text-xs text-white/85 leading-relaxed">
+              Serving residential, commercial, and industrial clients across{' '}
+              <strong className="font-semibold text-white">
+                Kings, Prince, and Queens counties
+              </strong>
+              .
             </div>
           </div>
 
