@@ -2,7 +2,22 @@
 
 Responsive single-page website for **Olympia Electric Ltd.** (Charlottetown, Prince Edward Island), designed for service lead generation, mobile responsiveness, and direct appointment booking.
 
-## 1. EmailJS Setup (Send Bookings to `kevin@olympiaelectric.ca`)
+## 1. Fix Blank Page / Deploy to GitHub Pages
+
+This is a Vite + React + TypeScript application. GitHub Pages **must** serve the compiled `dist/` bundle built by GitHub Actions — if GitHub Pages is set to **Deploy from a branch (`main` / root)**, browsers receive the uncompiled `index.html` (`/src/main.tsx`) and display a blank page.
+
+Follow these steps in your GitHub repository:
+
+1. Push the latest code (including `.github/workflows/deploy.yml`) to the `main` branch.
+2. Open your repository on GitHub and go to **Settings → Pages**.
+3. Under **Build and deployment → Source**, change the dropdown from *Deploy from a branch* to **GitHub Actions**.
+4. *(Optional for live EmailJS)* Go to **Settings → Secrets and variables → Actions → Repository secrets** and add:
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+   - `VITE_EMAILJS_PUBLIC_KEY`
+5. Go to the **Actions** tab, open **Deploy to GitHub Pages**, and click **Run workflow** (or push a commit to `main`). Once it finishes, your live site at `https://<username>.github.io/<repo>/` will load the built app.
+
+## 2. EmailJS Setup (Send Bookings to `kevin@olympiaelectric.ca`)
 
 This site uses **EmailJS** so form submissions work directly on static hosting (including GitHub Pages) without exposing private SMTP credentials.
 
@@ -32,22 +47,5 @@ This site uses **EmailJS** so form submissions work directly on static hosting (
    - Save the template and note your **Template ID**.
 4. Under **Account → General**, copy your **Public Key**.
 5. Configure your keys in one of two ways:
-   - **Local / `.env`**: Create `.env` from `.env.example` and fill in:
-     ```env
-     VITE_EMAILJS_SERVICE_ID="your_service_id"
-     VITE_EMAILJS_TEMPLATE_ID="your_template_id"
-     VITE_EMAILJS_PUBLIC_KEY="your_public_key"
-     ```
-   - **Code fallback**: Paste the three public IDs in `src/config/emailConfig.ts`.
-
-## 2. Deploying to GitHub Pages
-
-This repository includes `.github/workflows/deploy.yml` and uses relative Vite paths (`base: './'`) so it works cleanly on any `https://<username>.github.io/<repo>/` URL.
-
-1. Push this project to the `main` branch of a GitHub repository.
-2. In GitHub, go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
-3. Go to **Settings → Secrets and variables → Actions → Repository secrets** and add:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
-4. Re-run the **Deploy to GitHub Pages** workflow (or push a commit to `main`). Your live URL will appear in the Actions summary.
+   - **GitHub Repository Secrets / `.env`**: Set `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` (see `.env.example`).
+   - **Code fallback**: Paste the three public IDs directly in `src/config/emailConfig.ts`.
